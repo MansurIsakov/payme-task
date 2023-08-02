@@ -1,0 +1,5 @@
+@mixin input-message() {
+  @apply text-xs italic mt-2;
+
+  animation: inputMessageAnimation 0.3s;
+}
