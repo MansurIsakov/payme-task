@@ -15,6 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   providers: [DestroyService],
 })
 export class SignInComponent {
+  public isPasswordVisible = false;
   public signInForm = this._fb.nonNullable.group({
     email: [
       'nurlan@payme.uz',
@@ -40,6 +41,10 @@ export class SignInComponent {
     private _toastr: ToastrService,
     @Inject(DestroyService) private _destroy$: Observable<void>
   ) {}
+
+  public togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
 
   protected onSubmit(): void {
     if (this.signInForm.invalid) {

@@ -5,10 +5,10 @@ import { AuthService } from 'src/app/features/auth/auth.service';
   selector: 'app-main-nav',
   template: `
     <nav>
-      <ul class="flex flex-col gap-2">
+      <ul class="flex flex-col gap-2 ">
         <li>
           <a routerLink="/todo" routerLinkActive="active" class="router-link">
-            <clipboard-document-list-outline-icon></clipboard-document-list-outline-icon>
+            <clipboard-document-list-solid-icon />
             <span>ToDo List</span>
           </a>
         </li>
@@ -18,7 +18,7 @@ import { AuthService } from 'src/app/features/auth/auth.service';
             class="router-link"
             (click)="onLogout()"
           >
-            <arrow-uturn-left-outline-icon></arrow-uturn-left-outline-icon>
+            <arrow-uturn-left-solid-icon />
             <span>Logout</span>
           </a>
         </li>

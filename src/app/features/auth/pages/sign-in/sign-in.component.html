@@ -41,9 +41,21 @@
           </ng-container>
         </div>
 
-        <div class="w-full mt-4">
+        <div class="w-full mt-4 relative flex items-center">
+          <eye-outline-icon
+            *ngIf="!isPasswordVisible; else showEyeSlashIcon"
+            class="absolute right-0 bottom-2 focus:outline-none rtl:left-0 rtl:right-auto w-6 h-6 mx-4 text-gray-400"
+            (click)="togglePasswordVisibility()"
+          />
+          <ng-template #showEyeSlashIcon>
+            <eye-slash-outline-icon
+              class="absolute right-0 bottom-2 focus:outline-none rtl:left-0 rtl:right-auto w-6 h-6 mx-4 text-gray-400"
+              (click)="togglePasswordVisibility()"
+            />
+          </ng-template>
+
           <input
-            type="password"
+            [type]="isPasswordVisible ? 'text' : 'password'"
             class="input"
             placeholder="Password"
             aria-label="Password"

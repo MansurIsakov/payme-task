@@ -4,9 +4,10 @@ import { LayoutComponent } from './layout.component';
 import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
 import { MainNavComponent } from './common/main-nav.component';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './common/header.component';
 
 @NgModule({
   declarations: [LayoutComponent, MainNavComponent],
-  imports: [CommonModule, NgHeroiconsModule, RouterModule],
+  imports: [CommonModule, NgHeroiconsModule, RouterModule, HeaderComponent],
 })
 export class LayoutModule {}

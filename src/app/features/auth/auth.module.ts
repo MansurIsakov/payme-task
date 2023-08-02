@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
 
 const routes: Routes = [
   {
@@ -29,6 +30,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AuthComponent, SignInComponent, SignUpComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    NgHeroiconsModule,
+  ],
 })
 export class AuthModule {}
