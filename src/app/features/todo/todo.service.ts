@@ -37,6 +37,12 @@ export class TodoService {
       .pipe(catchError(this.handleError));
   }
 
+  public updateTodo(id: string, updatedTodo: ITodo) {
+    return this._http
+      .put<IResponse<ITodo>>(`${this._api}${id}/`, updatedTodo)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
 
