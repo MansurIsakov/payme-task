@@ -19,8 +19,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TodoViewComponent implements OnInit {
   public todo$!: Observable<ITodo>;
+  private _todoId: string = this._activatedRouter.snapshot.params['id'];
 
-  constructor(
+  public constructor(
     private _todoService: TodoService,
     private _activatedRouter: ActivatedRoute,
     private _router: Router,
@@ -33,15 +34,27 @@ export class TodoViewComponent implements OnInit {
   }
 
   public getTodoById() {
-    const todoId: string = this._activatedRouter.snapshot.params['id'];
-
-    this.todo$ = this._todoService.getTodoById(todoId).pipe(
-      takeUntil(this._destroy$),
+    this.todo$ = this._todoService.getTodoById(this._todoId).pipe(
       catchError((error) => {
         this._toastr.error(error);
         this._router.navigate(['/todos']);
         return throwError(() => error);
       })
     );
+  }
+
+  public onDelete() {
+    this._todoService
+      .deleteTodo(this._todoId)
+      .pipe(takeUntil(this._destroy$))
+      .subscribe({
+        next: () => {
+          this._toastr.success('Todo deleted successfully!');
+          this._router.navigate(['/todos']);
+        },
+        error: (error) => {
+          this._toastr.error(error);
+        },
+      });
   }
 }

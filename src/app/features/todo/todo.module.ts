@@ -34,6 +34,10 @@ const routes: Routes = [
         path: ':id',
         component: TodoViewComponent,
       },
+      {
+        path: ':id/edit',
+        component: TodoFormComponent,
+      },
     ],
   },
 ];

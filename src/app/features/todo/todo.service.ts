@@ -31,7 +31,11 @@ export class TodoService {
       .pipe(catchError(this.handleError));
   }
 
-  public deleteTodo(id: string) {}
+  public deleteTodo(id: string) {
+    return this._http
+      .delete(`${this._api}${id}/`)
+      .pipe(catchError(this.handleError));
+  }
 
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';

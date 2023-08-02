@@ -26,6 +26,10 @@
     @apply text-white bg-blue-500 hover:bg-blue-400 focus:ring-blue-300;
   }
 
+  &--danger {
+    @apply text-white bg-red-500 hover:bg-red-400 focus:ring-red-300;
+  }
+
   &--stroke {
     @apply text-blue-500 border border-blue-500 hover:bg-blue-50 focus:ring-blue-300;
   }
