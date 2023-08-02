@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +24,7 @@ import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
         />
 
         <a
-          routerLink="/todo"
+          routerLink="/todos"
           class="flex items-center gap-2 text-gray-600 font-semibold dark:text-blue-500 hover:underline"
         >
           <clipboard-document-list-solid-icon />
@@ -33,19 +35,35 @@ import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
       <!-- Theme Switcher -->
       <button
         class="bg-white dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border p-2"
+        (click)="changeTheme()"
       >
         <moon-outline-icon
+          *ngIf="isDarkEnabled; else isLightEnabled"
           class="text-gray-900 dark:text-white"
         ></moon-outline-icon>
 
-        <!-- TODO: Dark/Light mode -->
-        <!-- <sun-outline-icon
-        class="text-gray-900 dark:text-white"
-      ></sun-outline-icon> -->
+        <ng-template #isLightEnabled>
+          <sun-outline-icon
+            class="text-gray-900 dark:text-white"
+          ></sun-outline-icon>
+        </ng-template>
       </button>
     </header>
   `,
-  imports: [NgHeroiconsModule, RouterModule],
+  imports: [CommonModule, NgHeroiconsModule, RouterModule],
   standalone: true,
 })
-export class HeaderComponent {}
+export class HeaderComponent implements OnInit {
+  public isDarkEnabled: boolean = false;
+
+  public constructor(private _themeService: ThemeService) {}
+
+  public ngOnInit(): void {
+    this.isDarkEnabled = this._themeService.isDarkEnabled;
+  }
+
+  public changeTheme(): void {
+    this._themeService.changeTheme();
+    this.isDarkEnabled = this._themeService.isDarkEnabled;
+  }
+}

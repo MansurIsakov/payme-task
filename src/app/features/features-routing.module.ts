@@ -6,14 +6,14 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'todo',
+    redirectTo: 'todos',
   },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'todo',
+    path: 'todos',
     component: LayoutComponent,
     loadChildren: () => import('./todo/todo.module').then((m) => m.TodoModule),
   },

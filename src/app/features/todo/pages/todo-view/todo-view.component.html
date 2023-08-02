@@ -1,0 +1,24 @@
+<section *ngIf="todo$ | async as todo">
+  <app-todo-item [todo]="todo" />
+
+  <div class="flex items-center gap-4 mt-5">
+    <button
+      type="button"
+      class="btn btn--danger flex items-center gap-2"
+      (click)="onDelete()"
+    >
+      <trash-outline-icon />
+      <span>Delete</span>
+    </button>
+
+    <button
+      type="button"
+      role="link"
+      class="btn btn--primary flex items-center gap-2"
+      routerLink="/todos/{{ todo.id }}/edit"
+    >
+      <pencil-square-solid-icon />
+      <span>Update</span>
+    </button>
+  </div>
+</section>

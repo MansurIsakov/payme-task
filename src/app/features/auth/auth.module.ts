@@ -19,10 +19,12 @@ const routes: Routes = [
       {
         path: 'sign-in',
         component: SignInComponent,
+        title: 'ToDo App | Sign In',
       },
       {
         path: 'sign-up',
         component: SignUpComponent,
+        title: 'ToDo App | Sign Up',
       },
     ],
   },

@@ -1,6 +1,6 @@
 // Nav bar
 .router-link {
-  @apply flex items-center gap-5 text-gray-900 dark:text-white text-base font-medium p-5 active:font-bold hover:font-semibold hover:bg-gray-200 rounded-md transition-all duration-200 ease-in-out;
+  @apply flex items-center gap-5 text-gray-900 dark:text-white text-base font-medium p-5 active:font-bold hover:font-semibold hover:bg-gray-200 hover:dark:bg-gray-700 rounded-md transition-all duration-200 ease-in-out;
 
   &.active {
     @apply font-semibold;
@@ -9,7 +9,7 @@
 
 // Input
 .input {
-  @apply block w-full px-4 py-2 mt-2 text-gray-200 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300;
+  @apply block w-full px-4 py-2 mt-2 text-gray-800 dark:text-gray-200 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300;
 }
 
 // Input Error
@@ -24,6 +24,10 @@
 
   &--primary {
     @apply text-white bg-blue-500 hover:bg-blue-400 focus:ring-blue-300;
+  }
+
+  &--danger {
+    @apply text-white bg-red-500 hover:bg-red-400 focus:ring-red-300;
   }
 
   &--stroke {

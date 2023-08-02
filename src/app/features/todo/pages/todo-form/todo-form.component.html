@@ -1,0 +1,61 @@
+<section
+  class="max-w-2xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
+>
+  <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+    {{ isCreateMode ? "Create" : "Update" }} Todo
+  </h2>
+
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="flex flex-col gap-6 mt-4 sm:grid-cols-2">
+      <div>
+        <label class="text-gray-700 dark:text-gray-200" for="title">
+          Title
+        </label>
+        <input
+          id="title"
+          type="text"
+          class="input"
+          placeholder="Ex. Go gym"
+          formControlName="title"
+        />
+
+        <ng-container *ngIf="todoForm.controls.title as title">
+          <p
+            *ngIf="title.dirty && title.hasError('required')"
+            class="input-error"
+          >
+            Title is required
+          </p>
+
+          <p *ngIf="title.hasError('minlength')" class="input-error">
+            {{ title.getError("minlength")?.requiredLength }}
+            characters required, but you typed only
+            {{ title.getError("minlength")?.actualLength }}
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <label class="text-gray-700 dark:text-gray-200" for="emailAddress">
+          Completed
+        </label>
+        <input
+          id="emailAddress"
+          type="checkbox"
+          class="input max-w-fit !m-0"
+          formControlName="completed"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-end mt-6">
+      <button
+        type="submit"
+        class="btn btn--primary"
+        [disabled]="!todoForm.valid"
+      >
+        {{ isCreateMode ? "Create" : "Update" }}
+      </button>
+    </div>
+  </form>
+</section>
