@@ -1,7 +1,32 @@
+// Nav bar
 .router-link {
-  @apply flex items-center gap-5 text-gray-900 text-base font-medium p-5 active:font-bold hover:font-semibold hover:bg-gray-200 rounded-md transition-all duration-200 ease-in-out;
+  @apply flex items-center gap-5 text-gray-900 dark:text-white text-base font-medium p-5 active:font-bold hover:font-semibold hover:bg-gray-200 rounded-md transition-all duration-200 ease-in-out;
 
   &.active {
     @apply font-semibold;
+  }
+}
+
+// Input
+.input {
+  @apply block w-full px-4 py-2 mt-2 text-gray-200 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300;
+}
+
+// Input Error
+.input-error {
+  @include input-message();
+  @apply text-red-500;
+}
+
+// Button
+.btn {
+  @apply px-6 py-2 text-sm font-medium tracking-wide  capitalize transition-colors duration-300 transform  rounded-lg  focus:outline-none focus:ring focus:ring-opacity-50 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed;
+
+  &--primary {
+    @apply text-white bg-blue-500 hover:bg-blue-400 focus:ring-blue-300;
+  }
+
+  &--stroke {
+    @apply text-blue-500 border border-blue-500 hover:bg-blue-50 focus:ring-blue-300;
   }
 }
