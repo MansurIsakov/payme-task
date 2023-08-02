@@ -1,0 +1,39 @@
+<div class="grid grid-cols-[26rem,1fr] grid-rows-[auto,1fr] h-screen">
+  <!-- Header -->
+  <header
+    class="flex justify-between items-center bg-gray-100 py-3 px-12 border-b border-gray-200"
+  >
+    <!-- TODO: Change title based on route -->
+    <span> HEADER </span>
+
+    <!-- Theme Switcher -->
+    <button
+      class="bg-white dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border p-2"
+    >
+      <moon-outline-icon
+        class="text-gray-900 dark:text-white"
+      ></moon-outline-icon>
+
+      <!-- TODO: Dark/Light mode -->
+      <!-- <sun-outline-icon
+        class="text-gray-900 dark:text-white"
+      ></sun-outline-icon> -->
+    </button>
+  </header>
+
+  <!-- Sidebar -->
+  <aside
+    class="bg-gray-100 py-12 px-10 border-r border-gray-200 row-span-full flex flex-col gap-12"
+  >
+    <h2 class="font-bold text-lg pl-5">ToDo Application</h2>
+    <app-main-nav />
+  </aside>
+
+  <!-- Main -->
+  <main class="bg-gray-50 px-20 pt-16 pb-24 overflow-scroll">
+    <!-- Container -->
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
