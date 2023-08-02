@@ -25,18 +25,22 @@ const routes: Routes = [
       {
         path: 'list',
         component: TodoListComponent,
+        title: "ToDo App | Todo's List",
       },
       {
         path: 'create',
         component: TodoFormComponent,
+        title: "ToDo App | Todo's Create",
       },
       {
         path: ':id',
         component: TodoViewComponent,
+        title: "ToDo App | Todo's View",
       },
       {
         path: ':id/edit',
         component: TodoFormComponent,
+        title: "ToDo App | Todo's Edit",
       },
     ],
   },

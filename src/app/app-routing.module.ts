@@ -15,6 +15,7 @@ const routes: Routes = [
       import('./core/pages/error-404/error-404.component').then(
         (m) => m.Error404Component
       ),
+    title: '404 Not Found',
   },
   {
     path: '505-internal-server-error',
@@ -22,6 +23,7 @@ const routes: Routes = [
       import('./core/pages/error-505/error-505.component').then(
         (m) => m.Error505Component
       ),
+    title: '505 Internal Server Error',
   },
   { path: '**', redirectTo: '404-not-found' },
 ];
