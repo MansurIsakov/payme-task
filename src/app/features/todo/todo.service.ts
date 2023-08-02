@@ -11,6 +11,7 @@ export class TodoService {
   private _api = '/api/todo';
   private _endpoints = {
     list: '/',
+    create: '/',
   };
 
   public constructor(private _http: HttpClient) {}
@@ -18,7 +19,15 @@ export class TodoService {
   public getTodos() {
     return this._http
       .get<IResponse<ITodo[]>>(`${this._api}${this._endpoints.list}`)
-      .pipe(map((res) => res.results))
+      .pipe(
+        map((res) => res.results),
+        catchError(this.handleError)
+      );
+  }
+
+  public createTodo(newTodo: ITodo) {
+    return this._http
+      .post<IResponse<ITodo>>(`${this._api}${this._endpoints.create}`, newTodo)
       .pipe(catchError(this.handleError));
   }
 

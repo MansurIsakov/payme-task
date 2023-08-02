@@ -37,7 +37,7 @@ export class SignInComponent {
   public constructor(
     private _fb: FormBuilder,
     private _authService: AuthService,
-    private router: Router,
+    private _router: Router,
     private _toastr: ToastrService,
     @Inject(DestroyService) private _destroy$: Observable<void>
   ) {}
@@ -57,7 +57,7 @@ export class SignInComponent {
         .pipe(takeUntil(this._destroy$))
         .subscribe({
           next: () => {
-            this.router.navigate(['/todos']);
+            this._router.navigate(['/todos']);
             this._toastr.success('Successfully logged in');
           },
           error: (error: string) => {

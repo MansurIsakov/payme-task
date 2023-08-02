@@ -2,10 +2,13 @@
   <div class="flex items-center justify-between">
     <h2 class="text-3xl font-semibold">Todos</h2>
 
-    <button class="btn btn--stroke flex items-center gap-2">
+    <a
+      routerLink="/todos/create"
+      class="btn btn--stroke flex items-center gap-2"
+    >
       <plus-small-solid-icon />
       <span class="font-semibold"> Add new todo </span>
-    </button>
+    </a>
   </div>
 
   <div class="dark:bg-gray-800 p-5 pb-6 rounded-lg space-y-3 shadow-2xl">

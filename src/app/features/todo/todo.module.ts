@@ -8,8 +8,9 @@ import { TodoItemComponent } from './pages/todo-list/components/todo-item/todo-i
 import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
 import { TodoViewComponent } from './pages/todo-view/todo-view.component';
 import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from 'src/app/shared/pipes/search.pipe';
+import { TodoFormComponent } from './pages/todo-form/todo-form.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
         component: TodoListComponent,
       },
       {
+        path: 'create',
+        component: TodoFormComponent,
+      },
+      {
         path: ':id',
         component: TodoViewComponent,
       },
@@ -39,6 +44,7 @@ const routes: Routes = [
     TodoListComponent,
     TodoItemComponent,
     TodoViewComponent,
+    TodoFormComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +54,7 @@ const routes: Routes = [
     FilterPipe,
     SearchPipe,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class TodoModule {}

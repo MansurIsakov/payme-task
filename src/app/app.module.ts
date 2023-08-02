@@ -11,6 +11,7 @@ import { AuthInterceptorService } from './features/auth/auth-interceptor.service
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { LoaderInterceptor } from './core/interceptors/loader-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoaderComponent,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    OverlayModule,
   ],
   providers: [
     {
