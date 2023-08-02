@@ -1,6 +1,6 @@
 // Nav bar
 .router-link {
-  @apply flex items-center gap-5 text-gray-900 dark:text-white text-base font-medium p-5 active:font-bold hover:font-semibold hover:bg-gray-200 rounded-md transition-all duration-200 ease-in-out;
+  @apply flex items-center gap-5 text-gray-900 dark:text-white text-base font-medium p-5 active:font-bold hover:font-semibold hover:bg-gray-200 hover:dark:bg-gray-700 rounded-md transition-all duration-200 ease-in-out;
 
   &.active {
     @apply font-semibold;

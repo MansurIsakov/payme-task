@@ -14,7 +14,7 @@
     "changeOrigin": true,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/api/todo": "/auth/todo"
+      "^/api/todo/": "/todo/"
     }
   }
 }

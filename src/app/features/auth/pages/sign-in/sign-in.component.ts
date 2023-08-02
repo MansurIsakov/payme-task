@@ -57,7 +57,7 @@ export class SignInComponent {
         .pipe(takeUntil(this._destroy$))
         .subscribe({
           next: () => {
-            this.router.navigate(['/todo']);
+            this.router.navigate(['/todos']);
             this._toastr.success('Successfully logged in');
           },
           error: (error: string) => {
