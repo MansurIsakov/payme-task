@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/features/auth/auth.service';
     <nav>
       <ul class="flex flex-col gap-2 ">
         <li>
-          <a routerLink="/todo" routerLinkActive="active" class="router-link">
+          <a routerLink="/todos" routerLinkActive="active" class="router-link">
             <clipboard-document-list-solid-icon />
             <span>ToDo List</span>
           </a>

@@ -1,19 +1,11 @@
 {
-  "/api/auth/*": {
+  "/api/*": {
     "target": "https://joldibaev.uz/api",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/api/auth/token/login/": "/auth/token/login/"
-    }
-  },
-  "/api/todo/*": {
-    "target": "https://joldibaev.uz/api",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug",
-    "pathRewrite": {
+      "^/api/auth/token/login/": "/auth/token/login/",
       "^/api/todo/": "/todo/"
     }
   }

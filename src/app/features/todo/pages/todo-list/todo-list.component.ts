@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TodoService } from '../../todo.service';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { ITodo } from '../../interfaces/todo.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,13 +14,21 @@ export class TodoListComponent implements OnInit {
   public searchValue: string = '';
   public sortValue: string = '';
 
-  public constructor(private _todoService: TodoService) {}
+  public constructor(
+    private _todoService: TodoService,
+    private _toastr: ToastrService
+  ) {}
 
   public ngOnInit(): void {
     this.getTodos();
   }
 
   public getTodos(): void {
-    this.todoList$ = this._todoService.getTodos();
+    this.todoList$ = this._todoService.getTodos().pipe(
+      catchError((error) => {
+        this._toastr.error(error);
+        return throwError(() => error);
+      })
+    );
   }
 }

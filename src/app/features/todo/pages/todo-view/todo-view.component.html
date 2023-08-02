@@ -1,1 +1,3 @@
-<p>todo-view works!</p>
+<section *ngIf="todo$ | async as todo">
+  <app-todo-item [todo]="todo" />
+</section>

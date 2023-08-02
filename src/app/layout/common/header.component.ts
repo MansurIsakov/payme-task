@@ -22,7 +22,7 @@ import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
         />
 
         <a
-          routerLink="/todo"
+          routerLink="/todos"
           class="flex items-center gap-2 text-gray-600 font-semibold dark:text-blue-500 hover:underline"
         >
           <clipboard-document-list-solid-icon />
