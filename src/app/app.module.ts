@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, NgHeroiconsModule],
+  imports: [BrowserModule, AppRoutingModule, NgHeroiconsModule, LayoutModule],
   providers: [],
   bootstrap: [AppComponent],
 })
