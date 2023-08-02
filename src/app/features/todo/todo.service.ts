@@ -1,7 +1,9 @@
+import { catchError, map, throwError } from 'rxjs';
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { ITodo } from './interfaces/todo.interface';
-import { catchError, map, throwError } from 'rxjs';
 import { IResponse } from 'src/app/shared/interfaces/response.interface';
 
 @Injectable({
@@ -15,7 +17,7 @@ export class TodoService {
   public getTodos() {
     return this._http.get<IResponse<ITodo[]>>(`${this._api}`).pipe(
       map((res) => res.results),
-      catchError(this.handleError)
+      catchError(this.handleError),
     );
   }
 

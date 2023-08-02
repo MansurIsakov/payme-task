@@ -41,7 +41,7 @@ export class TodoFormComponent implements OnInit {
     private _activatedRouter: ActivatedRoute,
     private _toastr: ToastrService,
     private _changeDetectorRef: ChangeDetectorRef,
-    @Inject(DestroyService) private _destroy$: Observable<void>
+    @Inject(DestroyService) private _destroy$: Observable<void>,
   ) {}
 
   public ngOnInit(): void {

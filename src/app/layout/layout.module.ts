@@ -1,9 +1,11 @@
+import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LayoutComponent } from './layout.component';
-import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
-import { MainNavComponent } from './common/main-nav.component';
 import { RouterModule } from '@angular/router';
+
+import { LayoutComponent } from './layout.component';
+import { MainNavComponent } from './common/main-nav.component';
 import { HeaderComponent } from './common/header.component';
 
 @NgModule({

@@ -1,15 +1,17 @@
+import { Observable, catchError, takeUntil, throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
 import {
   ChangeDetectionStrategy,
   Component,
   Inject,
   OnInit,
 } from '@angular/core';
-import { TodoService } from '../../todo.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DestroyService } from 'src/app/core/services/destroy.service';
-import { Observable, catchError, of, takeUntil, throwError } from 'rxjs';
+
+import { TodoService } from '../../todo.service';
 import { ITodo } from '../../interfaces/todo.interface';
-import { ToastrService } from 'ngx-toastr';
+import { DestroyService } from 'src/app/core/services/destroy.service';
 
 @Component({
   selector: 'app-todo-view',
@@ -26,7 +28,7 @@ export class TodoViewComponent implements OnInit {
     private _activatedRouter: ActivatedRoute,
     private _router: Router,
     private _toastr: ToastrService,
-    @Inject(DestroyService) private _destroy$: Observable<void>
+    @Inject(DestroyService) private _destroy$: Observable<void>,
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class TodoViewComponent implements OnInit {
         this._toastr.error(error);
         this._router.navigate(['/todos']);
         return throwError(() => error);
-      })
+      }),
     );
   }
 

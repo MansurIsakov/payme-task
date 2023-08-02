@@ -1,3 +1,6 @@
+import { map, Observable, take } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -5,21 +8,20 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { map, Observable, take } from 'rxjs';
+
 import { AuthService } from './auth.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard {
   public constructor(
     private _authService: AuthService,
     private _router: Router,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
   ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    router: RouterStateSnapshot
+    router: RouterStateSnapshot,
   ):
     | boolean
     | UrlTree
@@ -37,7 +39,7 @@ export class AuthGuard {
         this._toastr.info('Please, sign in to continue.');
 
         return this._router.createUrlTree(['/auth']);
-      })
+      }),
     );
   }
 }

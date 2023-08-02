@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TodoService } from '../../todo.service';
-import { Observable, catchError, throwError } from 'rxjs';
-import { ITodo } from '../../interfaces/todo.interface';
 import { ToastrService } from 'ngx-toastr';
+import { Observable, catchError, throwError } from 'rxjs';
+
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
+import { TodoService } from '../../todo.service';
+import { ITodo } from '../../interfaces/todo.interface';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,7 +18,7 @@ export class TodoListComponent implements OnInit {
 
   public constructor(
     private _todoService: TodoService,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
   ) {}
 
   public ngOnInit(): void {
@@ -28,7 +30,7 @@ export class TodoListComponent implements OnInit {
       catchError((error) => {
         this._toastr.error(error);
         return throwError(() => error);
-      })
+      }),
     );
   }
 }

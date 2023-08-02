@@ -1,16 +1,18 @@
+import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoComponent } from './todo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+
+import { TodoComponent } from './todo.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { TodoItemComponent } from './pages/todo-list/components/todo-item/todo-item.component';
-import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
 import { TodoViewComponent } from './pages/todo-view/todo-view.component';
-import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchPipe } from 'src/app/shared/pipes/search.pipe';
 import { TodoFormComponent } from './pages/todo-form/todo-form.component';
+import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
+import { SearchPipe } from 'src/app/shared/pipes/search.pipe';
 
 const routes: Routes = [
   {

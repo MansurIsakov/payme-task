@@ -1,12 +1,13 @@
+import { Observable, takeUntil } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { AuthService } from '../../auth.service';
 import { IUserCredentials } from 'src/app/shared/interfaces/user-credentials.interface';
 import { DestroyService } from 'src/app/core/services/destroy.service';
-import { Observable, takeUntil } from 'rxjs';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-in',
@@ -39,7 +40,7 @@ export class SignInComponent {
     private _authService: AuthService,
     private _router: Router,
     private _toastr: ToastrService,
-    @Inject(DestroyService) private _destroy$: Observable<void>
+    @Inject(DestroyService) private _destroy$: Observable<void>,
   ) {}
 
   public togglePasswordVisibility(): void {
@@ -68,7 +69,7 @@ export class SignInComponent {
   }
 
   private _isValidFormValue(
-    data: Partial<IUserCredentials>
+    data: Partial<IUserCredentials>,
   ): data is IUserCredentials {
     return 'email' in data && 'password' in data;
   }
