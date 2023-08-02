@@ -50,6 +50,10 @@ export class TodoService {
       errorMessage = errorRes.error.message;
     }
 
+    if (errorRes.error.detail) {
+      errorMessage = errorRes.error.detail;
+    }
+
     return throwError(() => errorMessage);
   }
 }

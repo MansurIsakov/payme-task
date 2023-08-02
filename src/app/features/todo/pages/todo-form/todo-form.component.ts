@@ -1,3 +1,6 @@
+import { ToastrService } from 'ngx-toastr';
+import { Observable, takeUntil } from 'rxjs';
+
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -6,12 +9,11 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { TodoService } from '../../todo.service';
 import { ITodo } from '../../interfaces/todo.interface';
-import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute, Router } from '@angular/router';
 import { DestroyService } from 'src/app/core/services/destroy.service';
-import { Observable, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-todo-form',
@@ -81,7 +83,7 @@ export class TodoFormComponent implements OnInit {
     };
 
     if (this._isValidFormValue(newTodo)) {
-      // Check form mode
+      // Checking Form Mode
       if (this.isCreateMode) {
         this._todoService.createTodo(newTodo).subscribe({
           next: () => {
