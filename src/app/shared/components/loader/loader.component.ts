@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { LoaderService } from '@core/services/loader.service';
@@ -8,7 +8,7 @@ import { LoaderService } from '@core/services/loader.service';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgIf, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoaderComponent {
