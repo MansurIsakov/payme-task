@@ -23,7 +23,7 @@ export class ThemeService {
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
-      this.isDarkEnabled = true;
+      localStorage.setItem('isDarkEnabled', 'true');
     }
 
     this.isDarkEnabled = localStorage.getItem('isDarkEnabled') === 'true';
