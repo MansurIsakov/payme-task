@@ -1,4 +1,3 @@
-import { ToastrService } from 'ngx-toastr';
 import { Observable, takeUntil } from 'rxjs';
 
 import {
@@ -11,9 +10,12 @@ import {
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { TodoService } from '../../todo.service';
 import { ITodo } from '../../interfaces/todo.interface';
 import { DestroyService } from 'src/app/core/services/destroy.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/store';
+import { addTodo, getTodo, updateTodo } from 'src/store/todo/todo.actions';
+import { selectTodo } from 'src/store/todo/todo.selector';
 
 @Component({
   selector: 'app-todo-form',
@@ -36,12 +38,11 @@ export class TodoFormComponent implements OnInit {
 
   public constructor(
     private _fb: FormBuilder,
-    private _todoService: TodoService,
     private _router: Router,
     private _activatedRouter: ActivatedRoute,
-    private _toastr: ToastrService,
     private _changeDetectorRef: ChangeDetectorRef,
-    @Inject(DestroyService) private _destroy$: Observable<void>
+    private _store: Store<AppState>,
+    @Inject(DestroyService) private _destroy$: Observable<void>,
   ) {}
 
   public ngOnInit(): void {
@@ -54,21 +55,16 @@ export class TodoFormComponent implements OnInit {
 
   public fillForm(): void {
     if (this._todoId) {
-      this._todoService
-        .getTodoById(this._todoId)
-        .pipe(takeUntil(this._destroy$))
-        .subscribe({
-          next: (todo) => {
-            this.todoForm.patchValue(todo);
-            // This is needed to update the form validation
+      this._store.dispatch(getTodo({id: this._todoId}));
+      this._store.select(selectTodo)
+      .pipe(takeUntil(this._destroy$))
+      .subscribe(
+        (todo) => {
+          if (todo) {
+            this.todoForm.patchValue(todo)}
             this._changeDetectorRef.markForCheck();
-          },
-          error: (error) => {
-            // CHECK
-            this._toastr.error(error);
-            this._router.navigate(['/todos/todoId']);
-          },
-        });
+        }
+      );
     }
   }
 
@@ -85,28 +81,9 @@ export class TodoFormComponent implements OnInit {
     if (this._isValidFormValue(newTodo)) {
       // Checking Form Mode
       if (this.isCreateMode) {
-        this._todoService.createTodo(newTodo).subscribe({
-          next: () => {
-            this._router.navigate(['/todos']);
-            this._toastr.success('Successfully created!');
-          },
-          error: (error) => {
-            this._toastr.error(error);
-          },
-        });
+          this._store.dispatch(addTodo({ todo: newTodo }));
       } else {
-        this._todoService
-          .updateTodo(this._todoId, newTodo)
-          .pipe(takeUntil(this._destroy$))
-          .subscribe({
-            next: () => {
-              this._router.navigate([`/todos/${this._todoId}`]);
-              this._toastr.success('Successfully updated!');
-            },
-            error: (error) => {
-              this._toastr.error(error);
-            },
-          });
+        this._store.dispatch(updateTodo({id: this._todoId, todo: newTodo}))
       }
     }
   }

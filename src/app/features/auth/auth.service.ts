@@ -2,6 +2,7 @@ import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 import { IUserCredentials } from 'src/app/shared/interfaces/user-credentials.interface';
 import { ILoginResponse } from './interfaces/login-response.interface';
 import { IToken } from './interfaces/token.interface';
@@ -26,13 +27,13 @@ export class AuthService {
         catchError(this.handleError),
         tap((res) => {
           this.handleAuthentication(res.username, res.user_id, res.token);
-        })
+        }),
       );
   }
 
   autoLogin() {
     const userData: ILoginResponse = JSON.parse(
-      localStorage.getItem('userData') || '{}'
+      localStorage.getItem('userData') || '{}',
     );
     if (!userData) {
       return;
@@ -51,7 +52,7 @@ export class AuthService {
   private handleAuthentication(
     username: string,
     user_id: string,
-    token: IToken
+    token: IToken,
   ) {
     const user = {
       username,

@@ -1,6 +1,8 @@
+import { exhaustMap, take } from 'rxjs';
+
 import { HttpHandler, HttpInterceptor, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { exhaustMap, take } from 'rxjs';
+
 import { AuthService } from './auth.service';
 
 @Injectable()
@@ -20,7 +22,7 @@ export class AuthInterceptorService implements HttpInterceptor {
           },
         });
         return next.handle(modifiedReq);
-      })
+      }),
     );
   }
 }

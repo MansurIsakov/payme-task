@@ -1,17 +1,23 @@
 import { ToastrModule } from 'ngx-toastr';
 import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OverlayModule } from '@angular/cdk/overlay';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptorService } from './features/auth/auth-interceptor.service';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { AuthInterceptorService } from './features/auth/auth-interceptor.service';
 import { LoaderInterceptor } from './core/interceptors/loader-interceptor.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { TodoEffects } from 'src/store/todo/todo.effects';
+import { todoReducer } from 'src/store/todo/todo.reducer';
+import { reducers } from 'src/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +31,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     OverlayModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([TodoEffects]),
   ],
   providers: [
     {

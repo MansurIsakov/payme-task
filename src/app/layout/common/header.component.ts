@@ -1,7 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
@@ -52,6 +54,7 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   `,
   imports: [CommonModule, NgHeroiconsModule, RouterModule],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
   public isDarkEnabled: boolean = false;

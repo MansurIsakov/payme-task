@@ -1,8 +1,11 @@
+import { catchError, map, throwError } from 'rxjs';
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { ITodo } from './interfaces/todo.interface';
-import { catchError, map, throwError } from 'rxjs';
 import { IResponse } from 'src/app/shared/interfaces/response.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +13,12 @@ import { IResponse } from 'src/app/shared/interfaces/response.interface';
 export class TodoService {
   private _api = '/api/todo/';
 
-  public constructor(private _http: HttpClient) {}
+  public constructor(private _http: HttpClient, private _toastr: ToastrService) {}
 
   public getTodos() {
     return this._http.get<IResponse<ITodo[]>>(`${this._api}`).pipe(
       map((res) => res.results),
-      catchError(this.handleError)
+      catchError(this.handleError),
     );
   }
 
@@ -27,7 +30,7 @@ export class TodoService {
 
   public createTodo(newTodo: ITodo) {
     return this._http
-      .post<IResponse<ITodo>>(`${this._api}`, newTodo)
+      .post<ITodo>(`${this._api}`, newTodo)
       .pipe(catchError(this.handleError));
   }
 
@@ -54,6 +57,7 @@ export class TodoService {
       errorMessage = errorRes.error.detail;
     }
 
+    this._toastr.error(errorMessage);
     return throwError(() => errorMessage);
   }
 }

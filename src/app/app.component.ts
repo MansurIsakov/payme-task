@@ -1,8 +1,9 @@
+import { Observable } from 'rxjs';
+
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { AuthService } from './features/auth/auth.service';
 import { ThemeService } from './core/services/theme.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit {
 
   public constructor(
     private _authService: AuthService,
-    private _themeService: ThemeService
+    private _themeService: ThemeService,
   ) {}
 
   ngOnInit(): void {

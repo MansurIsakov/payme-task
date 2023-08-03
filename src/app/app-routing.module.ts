@@ -6,14 +6,14 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./features/features-routing.module').then(
-        (m) => m.FeaturesRoutingModule
+        (m) => m.FeaturesRoutingModule,
       ),
   },
   {
     path: '404-not-found',
     loadComponent: () =>
       import('./core/pages/error-404/error-404.component').then(
-        (m) => m.Error404Component
+        (m) => m.Error404Component,
       ),
     title: '404 Not Found',
   },
@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '505-internal-server-error',
     loadComponent: () =>
       import('./core/pages/error-505/error-505.component').then(
-        (m) => m.Error505Component
+        (m) => m.Error505Component,
       ),
     title: '505 Internal Server Error',
   },
