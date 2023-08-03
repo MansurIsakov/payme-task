@@ -1,10 +1,12 @@
-import { ToastrService } from 'ngx-toastr';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { TodoService } from '../../todo.service';
 import { ITodo } from '../../interfaces/todo.interface';
+import { selectTodos } from 'src/store/todo/todo.selector';
+import { AppState } from 'src/store';
+import { loadTodos } from 'src/store/todo/todo.actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -12,25 +14,17 @@ import { ITodo } from '../../interfaces/todo.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListComponent implements OnInit {
-  public todoList$!: Observable<ITodo[]>;
+  public todoList$: Observable<ITodo[]> = this._store.select(selectTodos);
   public searchValue: string = '';
   public sortValue: string = '';
 
-  public constructor(
-    private _todoService: TodoService,
-    private _toastr: ToastrService,
-  ) {}
+  public constructor(private _store: Store<AppState>) {}
 
   public ngOnInit(): void {
     this.getTodos();
   }
 
   public getTodos(): void {
-    this.todoList$ = this._todoService.getTodos().pipe(
-      catchError((error) => {
-        this._toastr.error(error);
-        return throwError(() => error);
-      }),
-    );
+    this._store.dispatch(loadTodos());    
   }
 }

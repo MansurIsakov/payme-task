@@ -1,5 +1,7 @@
 import { ToastrModule } from 'ngx-toastr';
 import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +15,9 @@ import { LayoutModule } from './layout/layout.module';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { AuthInterceptorService } from './features/auth/auth-interceptor.service';
 import { LoaderInterceptor } from './core/interceptors/loader-interceptor.service';
+import { TodoEffects } from 'src/store/todo/todo.effects';
+import { todoReducer } from 'src/store/todo/todo.reducer';
+import { reducers } from 'src/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +31,8 @@ import { LoaderInterceptor } from './core/interceptors/loader-interceptor.servic
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     OverlayModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([TodoEffects]),
   ],
   providers: [
     {
