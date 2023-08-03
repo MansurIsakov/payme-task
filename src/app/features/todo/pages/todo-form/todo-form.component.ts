@@ -11,11 +11,11 @@ import {
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ITodo } from '../../interfaces/todo.interface';
-import { DestroyService } from 'src/app/core/services/destroy.service';
-import { AppState } from 'src/store';
-import { addTodo, getTodo, updateTodo } from 'src/store/todo/todo.actions';
-import { selectTodo } from 'src/store/todo/todo.selector';
+import { ITodo } from '@todo/interfaces/todo.interface';
+import { DestroyService } from '@core/services/destroy.service';
+import { AppState } from '@store/index';
+import { addTodo, getTodo, updateTodo } from '@store/todo/todo.actions';
+import { selectTodo } from '@store/todo/todo.selector';
 
 @Component({
   selector: 'app-todo-form',

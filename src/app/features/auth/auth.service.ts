@@ -3,9 +3,9 @@ import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { IUserCredentials } from 'src/app/shared/interfaces/user-credentials.interface';
-import { ILoginResponse } from './interfaces/login-response.interface';
-import { IToken } from './interfaces/token.interface';
+import { IUserCredentials } from '@shared/interfaces/user-credentials.interface';
+import { ILoginResponse } from '@auth/interfaces/login-response.interface';
+import { IToken } from '@auth/interfaces/token.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { AuthService } from 'src/app/features/auth/auth.service';
+import { AuthService } from '@auth/auth.service';
 
 @Component({
   selector: 'app-main-nav',

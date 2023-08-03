@@ -1,4 +1,4 @@
-import { IToken } from './token.interface';
+import { IToken } from '@auth/interfaces/token.interface';
 
 export interface ILoginResponse {
   token: IToken;

@@ -5,13 +5,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TodoComponent } from './todo.component';
-import { TodoListComponent } from './pages/todo-list/todo-list.component';
-import { TodoItemComponent } from './pages/todo-list/components/todo-item/todo-item.component';
-import { TodoViewComponent } from './pages/todo-view/todo-view.component';
-import { TodoFormComponent } from './pages/todo-form/todo-form.component';
-import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
-import { SearchPipe } from 'src/app/shared/pipes/search.pipe';
+import { TodoComponent } from '@todo/todo.component';
+import { TodoListComponent } from '@todo/pages/todo-list/todo-list.component';
+import { TodoItemComponent } from '@todo/pages/todo-list/components/todo-item/todo-item.component';
+import { TodoViewComponent } from '@todo/pages/todo-view/todo-view.component';
+import { TodoFormComponent } from '@todo/pages/todo-form/todo-form.component';
+import { FilterPipe } from '@shared/pipes/filter.pipe';
+import { SearchPipe } from '@shared/pipes/search.pipe';
 
 const routes: Routes = [
   {

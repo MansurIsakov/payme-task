@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ITodo } from 'src/app/features/todo/interfaces/todo.interface';
+import { ITodo } from '@todo/interfaces/todo.interface';
 
 @Component({
   selector: 'app-todo-item',

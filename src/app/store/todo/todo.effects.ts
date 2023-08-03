@@ -6,8 +6,8 @@ import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import * as TodoActions from './todo.actions';
-import { TodoService } from 'src/app/features/todo/todo.service';
+import * as TodoActions from '@store/todo/todo.actions';
+import { TodoService } from '@todo/todo.service';
 
 @Injectable()
 export class TodoEffects {

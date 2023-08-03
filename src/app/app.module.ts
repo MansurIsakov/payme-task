@@ -9,14 +9,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
-import { LoaderComponent } from './shared/components/loader/loader.component';
-import { AuthInterceptorService } from './features/auth/auth-interceptor.service';
-import { LoaderInterceptor } from './core/interceptors/loader-interceptor.service';
-import { TodoEffects } from 'src/store/todo/todo.effects';
-import { reducers } from 'src/store';
+import { AppRoutingModule } from '@app/app-routing.module';
+import { AppComponent } from '@app/app.component';
+import { LayoutModule } from '@layout/layout.module';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
+import { LoaderInterceptor } from '@core/interceptors/loader-interceptor.service';
+import { AuthInterceptorService } from '@auth/auth-interceptor.service';
+import { TodoEffects } from '@store/todo/todo.effects';
+import { reducers } from '@store/index';
 
 @NgModule({
   declarations: [AppComponent],

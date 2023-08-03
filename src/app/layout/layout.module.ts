@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { LayoutComponent } from './layout.component';
-import { MainNavComponent } from './common/main-nav.component';
-import { HeaderComponent } from './common/header.component';
+import { LayoutComponent } from '@layout/layout.component';
+import { MainNavComponent } from '@layout/common/main-nav.component';
+import { HeaderComponent } from '@layout/common/header.component';
 
 @NgModule({
   declarations: [LayoutComponent, MainNavComponent],

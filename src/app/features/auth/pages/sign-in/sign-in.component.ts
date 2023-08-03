@@ -5,9 +5,9 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../auth.service';
-import { IUserCredentials } from 'src/app/shared/interfaces/user-credentials.interface';
-import { DestroyService } from 'src/app/core/services/destroy.service';
+import { DestroyService } from '@core/services/destroy.service';
+import { IUserCredentials } from '@shared/interfaces/user-credentials.interface';
+import { AuthService } from '@auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',

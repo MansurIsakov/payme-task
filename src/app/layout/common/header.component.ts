@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { ThemeService } from '@core/services/theme.service';
 
 @Component({
   selector: 'app-header',

@@ -3,10 +3,10 @@ import { Store } from '@ngrx/store';
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { ITodo } from '../../interfaces/todo.interface';
-import { selectTodos } from 'src/store/todo/todo.selector';
-import { AppState } from 'src/store';
-import { loadTodos } from 'src/store/todo/todo.actions';
+import { ITodo } from '@todo/interfaces/todo.interface';
+import { selectTodos } from '@store/todo/todo.selector';
+import { AppState } from '@store/index';
+import { loadTodos } from '@store/todo/todo.actions';
 
 @Component({
   selector: 'app-todo-list',

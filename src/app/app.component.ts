@@ -2,8 +2,8 @@ import { Observable } from 'rxjs';
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { AuthService } from './features/auth/auth.service';
-import { ThemeService } from './core/services/theme.service';
+import { AuthService } from '@auth/auth.service';
+import { ThemeService } from '@core/services/theme.service';
 
 @Component({
   selector: 'app-root',

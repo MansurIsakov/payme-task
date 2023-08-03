@@ -8,7 +8,7 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { LoaderService } from '../services/loader.service';
+import { LoaderService } from '@core/services/loader.service';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {

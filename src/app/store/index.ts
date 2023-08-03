@@ -1,6 +1,6 @@
 import { ActionReducerMap } from "@ngrx/store";
 
-import { TodoState, todoReducer } from "./todo/todo.reducer";
+import { TodoState, todoReducer } from "@store/todo/todo.reducer";
 
 export interface AppState {
     todo: TodoState
