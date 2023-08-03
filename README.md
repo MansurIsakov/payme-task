@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 
 ## To-Do
-Move user subject behaivour to state management
+- Move `user` subject behaivour to state management
 
 
 ## Development server
