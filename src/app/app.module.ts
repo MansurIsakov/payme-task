@@ -7,7 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
@@ -29,7 +28,6 @@ import { reducers } from '@store/index';
     LoaderComponent,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    OverlayModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([TodoEffects]),
   ],
