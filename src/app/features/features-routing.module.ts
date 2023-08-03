@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'todos',
-    canLoad: [AuthGuard],
+    canMatch: [AuthGuard],
     component: LayoutComponent,
     loadChildren: () => import('./todo/todo.module').then((m) => m.TodoModule),
   },

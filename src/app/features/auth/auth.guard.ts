@@ -19,7 +19,7 @@ export class AuthGuard {
     private _toastr: ToastrService,
   ) {}
 
-  canLoad(
+  canMatch(
     route: ActivatedRouteSnapshot,
     router: RouterStateSnapshot,
   ):
