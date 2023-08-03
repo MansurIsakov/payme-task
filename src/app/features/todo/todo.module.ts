@@ -17,7 +17,6 @@ import { SearchPipe } from 'src/app/shared/pipes/search.pipe';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
     children: [
       {
         path: '',
