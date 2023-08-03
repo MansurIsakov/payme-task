@@ -1,13 +1,13 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import * as TodoActions from './todo.actions';
 import { TodoService } from 'src/app/features/todo/todo.service';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class TodoEffects {

@@ -1,6 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 import { ITodo } from 'src/app/features/todo/interfaces/todo.interface';
-import { IResponse } from 'src/app/shared/interfaces/response.interface';
 
 
 export const loadTodos = createAction('[Todo] Load Todos');

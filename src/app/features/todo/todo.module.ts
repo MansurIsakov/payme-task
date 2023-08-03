@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TodoComponent } from './todo.component';
-import { AuthGuard } from '../auth/auth.guard';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { TodoItemComponent } from './pages/todo-list/components/todo-item/todo-item.component';
 import { TodoViewComponent } from './pages/todo-view/todo-view.component';

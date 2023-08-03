@@ -1,11 +1,11 @@
 import { catchError, map, throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ITodo } from './interfaces/todo.interface';
 import { IResponse } from 'src/app/shared/interfaces/response.interface';
-import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',

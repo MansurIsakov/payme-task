@@ -1,4 +1,5 @@
 import { Observable, takeUntil } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 import {
   ChangeDetectionStrategy,
@@ -12,7 +13,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ITodo } from '../../interfaces/todo.interface';
 import { DestroyService } from 'src/app/core/services/destroy.service';
-import { Store } from '@ngrx/store';
 import { AppState } from 'src/store';
 import { addTodo, getTodo, updateTodo } from 'src/store/todo/todo.actions';
 import { selectTodo } from 'src/store/todo/todo.selector';
