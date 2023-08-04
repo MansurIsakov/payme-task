@@ -5,8 +5,7 @@
     <button
       type="button"
       class="btn btn--danger flex items-center gap-2"
-      (click)="onDelete()"
-    >
+      (click)="onDelete()">
       <trash-outline-icon />
       <span>Delete</span>
     </button>
@@ -15,8 +14,7 @@
       type="button"
       role="link"
       class="btn btn--primary flex items-center gap-2"
-      routerLink="/todos/{{ todo.id }}/edit"
-    >
+      routerLink="/todos/{{ todo.id }}/edit">
       <pencil-square-solid-icon />
       <span>Update</span>
     </button>
