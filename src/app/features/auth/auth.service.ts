@@ -31,7 +31,7 @@ export class AuthService {
       );
   }
 
-  autoLogin() {
+  public autoLogin() {
     const userData: ILoginResponse = JSON.parse(
       localStorage.getItem('userData') || '{}',
     );
@@ -44,7 +44,7 @@ export class AuthService {
     }
   }
 
-  logout() {
+  public logout() {
     this.user.next(null);
     localStorage.removeItem('userData');
   }
